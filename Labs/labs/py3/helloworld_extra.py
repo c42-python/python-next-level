@@ -33,44 +33,50 @@ Nemo the Fish says:
 '''
 
 # Write your code here:
-class Dog:
+class Animal:
+    
     def __init__(self, name):
         self.name = name
+        self.animal_type = ''
+        self.speech = ''
 
     def description(self):
-        return f"{self.name} the Dog"
+        return f"{self.name} the {self.animal_type}"        
 
     def speak(self):
-        return "Woof!"
+        return self.speech
 
     def emote(self):
-        print(f"{self.name} the Dog says: {self.speak()}")        
+        print(f"{self.name} the {self.animal_type} says: {self.speak()}")        
 
-class Cat:
+class Dog(Animal):
+
     def __init__(self, name):
-        self.name = name
+        Animal.__init__(self, name)
+        self.dog_init()
+        
+    def dog_init(self):
+        self.animal_type = 'Dog'
+        self.speech = 'Woof!'
 
-    def description(self):
-        return f"{self.name} the Cat"
+class Cat(Animal):
 
-    def speak(self):
-        return "Meow!"
-
-    def emote(self):
-        print(f"{self.name} the Cat says: {self.speak()}")        
-
-class Fish:
     def __init__(self, name):
-        self.name = name
+        Animal.__init__(self, name)
+        self.cat_init()
+        
+    def cat_init(self):
+        self.animal_type = 'Cat'
+        self.speech = 'Meow!'
 
-    def description(self):
-        return f"{self.name} the Fish"
-
-    def speak(self):
-        return ""
-
-    def emote(self):
-        print(f"{self.name} the Fish says: {self.speak()}")
+class Fish(Animal):
+    def __init__(self, name):
+        Animal.__init__(self, name)
+        self.fish_init()
+        
+    def fish_init(self):
+        self.animal_type = 'Fish'
+        self.speech = ''
 
 # Do not edit any code below this line!
 
