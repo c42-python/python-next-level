@@ -31,8 +31,11 @@ Pro tips:
 '''
 
 # Write your code here:
+def hello(name):
+  return f"Hello, {name}!"
 
-
+def print_hello(name):
+  print(f"Hello, world!")
 
 # Do not edit any code below this line!
 
