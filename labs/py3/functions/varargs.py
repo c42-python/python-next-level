@@ -44,9 +44,28 @@ Going to x=8, y=33, z=-4
 '''
 
 # Write your code here:
+def product(a = 1, b = 1, c = 1, *nums):
+    result = a * b * c
 
+    for n in nums:
+        result *= n
+    return result
 
+def total(u=0, v=0, w=0, *more):
+    result = u + v + w
 
+    for n in more:
+        result += n
+
+    return result
+
+def max_even(*nums):
+    even_nums = [n for n in nums if n % 2 ==0]
+    print(max(even_nums))
+
+def set_destination(x, y, z):
+    print(f"Going to x={x}, y={y}, z={z}")
+    
 # Do not edit any code below this line!
 
 if __name__ == '__main__':

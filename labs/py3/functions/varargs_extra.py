@@ -31,7 +31,8 @@ passed-in keyword arguments.
 '''
 
 # Write your code here:
-
+# def val_for_longest_key(**kwargs):
+#     longest_key = 
 
 
 # Do not edit any code below this line!

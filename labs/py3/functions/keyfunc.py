@@ -39,6 +39,29 @@ Modify your code to use lambda expressions instead of separately defined key fun
 '''
 
 # Write your code here:
+def most_spaces(items):
+    return max(items, key=count_spaces)
+
+def count_spaces(word):
+    return len([letter for letter in word if letter == ' '])
+
+def fewest_vowels(lines):
+    return min(lines, key=count_vowels)
+
+def count_vowels(line):
+    return len([letter for letter in line if letter in ['a', 'e', 'i', 'o', 'u']])
+
+def most_consonants(lines):
+    return max(lines, key=count_consonants)
+
+def count_consonants(line):
+    return len([letter for letter in line if letter not in ['a', 'e', 'i', 'o', 'u']])
+
+def sorted_by_word_count(lines):
+    return sorted(lines, key=count_words)
+
+def count_words(line):
+    pass
 
 
 

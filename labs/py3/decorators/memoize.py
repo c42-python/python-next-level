@@ -54,8 +54,14 @@ CALLING: q 7
 '''
 
 # Write your code here:
-
-
+def memoize(func):
+    cache = {}
+    def wrapper(*args):
+        if args not in cache:
+            cache[args] = func(*args)
+        return cache[args]
+    
+    return wrapper
 
 
 # Do not edit any code below this line!
