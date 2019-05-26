@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\aramachandriya\\virtualenvs\\python-next-level\\Scripts\\python.exe"
+    "python.pythonPath": "/Users/arunkumar/.local/share/virtualenvs/python-next-level-CNMCR8Xt/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
