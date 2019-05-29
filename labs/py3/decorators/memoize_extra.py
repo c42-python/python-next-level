@@ -72,7 +72,23 @@ CALLING: h 3 2 31
 # HINT: While not necessary, it may help to use the collections module.
 
 # Write your code here:
+# Step 1: Do the simplest thing i.e for every call to a given function maintain a 
+#           dictionary where KEY: parameters tuple; VALUE: function return value
+# Step 2: Swap out default dict to OrderedDict from collections (Ordered dictionaries 
+            # are just like regular dictionaries but they remember the order that items 
+            # were inserted. When iterating over an ordered dictionary, the items are     
+            # returned in the order their keys were first added.)
+from collections import OrderedDict
 
+def memoize(func):
+    cache = OrderedDict()
+    def wrapper(*args):
+        if args not in cache.keys():
+            if len(cache) == 2:
+                cache.popitem()
+            cache[args] = func(*args)
+        return cache[args]
+    return wrapper
 
 
 # Do not edit any code below this line!
