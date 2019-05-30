@@ -81,13 +81,22 @@ CALLING: h 3 2 31
 from collections import OrderedDict
 
 def memoize(func):
+    limit = 2
     cache = OrderedDict()
-    def wrapper(*args):
-        if args not in cache.keys():
-            if len(cache) == 2:
-                cache.popitem()
-            cache[args] = func(*args)
-        return cache[args]
+    def wrapper(*args, **kwargs):
+        # initially tried with cache_key as (args, kwargs) but got an error
+        # kwargs dict type is not hashable as its a mutable type. Now tuple 
+        # is immutable and somehow insert that kwargs value into a tuple!
+        cache_key = (args, tuple(kwargs.items()))
+        if cache_key in cache.keys():
+            cache.move_to_end(cache_key)
+        else:
+            cache[cache_key] = func(*args, **kwargs)
+        
+        if len(cache.items()) > limit:
+            cache.popitem(last = False)      
+
+        return cache[cache_key]
     return wrapper
 
 
